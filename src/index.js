@@ -1,18 +1,14 @@
-import React, { Component } from 'react';
+import "~/config/ReactotronConfig";
+import React, { Component } from "react";
+import { Provider } from "react-redux";
+import store from "~/store";
+import Routes from "~/routes";
+import { Text, View } from "react-native";
+import { setNavigator } from "./services/navigation";
 
-import { Text, View } from 'react-native';
-import Teste from '~/teste';
-
-export default class App extends Component {
-  componentDidMount() {}
-
-  render() {
-    return (
-      <View>
-        <Text>Welcome to React Native!</Text>
-        <Text>To get started, edit App.js</Text>
-        <Teste />
-      </View>
-    );
-  }
-}
+const App = () => (
+  <Provider store={store}>
+    <Routes ref={setNavigator} />
+  </Provider>
+);
+export default App;
