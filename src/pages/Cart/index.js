@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import Icon from "react-native-vector-icons/Entypo";
 import CartItem from "./CartItem";
 
 import {
@@ -9,7 +10,9 @@ import {
   ProductsList,
   IconLimparPedidos,
   Footer,
-  IconAddProduct
+  IconAddProduct,
+  CheckoutButton,
+  CheckoutButtonText
 } from "./styles";
 
 export default class Products extends Component {
@@ -48,24 +51,23 @@ export default class Products extends Component {
           },
           value: 6.0,
           url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 4,
-          product: {
-            name: "Guaraná Mineiro"
-          },
-          productSize: {
-            description: "2L"
-          },
-          value: 4.5,
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
         }
       ]
     }
   };
 
+  handleBackClick = () => {
+    const { navigation } = this.props;
+    navigation.navigate("Products");
+  };
+
   handleRemoveCartItemClick = cartItem => {
     console.tron.warn("handleProductClick");
+  };
+
+  handleCheckoutCartClick = () => {
+    const { navigation } = this.props;
+    navigation.navigate("Checkout");
   };
 
   render() {
@@ -75,7 +77,9 @@ export default class Products extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <IconLimparPedidos name="chevron-left" />
+          <TouchableOpacity onPress={() => this.handleBackClick()}>
+            <IconLimparPedidos name="chevron-left" />
+          </TouchableOpacity>
           <HeaderText>Carrinho</HeaderText>
         </Header>
 
@@ -90,10 +94,14 @@ export default class Products extends Component {
           )}
           ListFooterComponent={() => (
             <Footer>
-              <IconAddProduct />
-              <TouchableOpacity>
-                <Text>Convidar</Text>
+              <TouchableOpacity onPress={() => this.handleBackClick()}>
+                <IconAddProduct />
               </TouchableOpacity>
+
+              <CheckoutButton onPress={() => this.handleCheckoutCartClick()}>
+                <CheckoutButtonText>Realizar Pedido</CheckoutButtonText>
+                <Icon name="chevron-right" size={24} color="#FFF" />
+              </CheckoutButton>
             </Footer>
           )}
         />

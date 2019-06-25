@@ -12,7 +12,7 @@ import {
   ProductTimeText
 } from "./styles";
 
-const ProductItem = ({ product, OnItemClick }) => (
+const ProductItem = ({ product, onItemClick }) => (
   <Container onPress={() => onItemClick(product)}>
     <Image source={{ uri: product.url }} />
     <ContainerText>
@@ -20,7 +20,7 @@ const ProductItem = ({ product, OnItemClick }) => (
       <ProductDescriptionText>{product.description}</ProductDescriptionText>
       <ProductTimeText>
         <Icon name="alarm" />
-        {product.time}
+        {product.time + " mins"}
       </ProductTimeText>
     </ContainerText>
   </Container>

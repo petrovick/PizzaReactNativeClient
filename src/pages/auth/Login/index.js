@@ -20,10 +20,9 @@ import {
 
 class Login extends Component {
   state = {
-    email: "",
-    password: ""
+    email: "petrovickg@hotmail.com",
+    password: "123456"
   };
-
   handleSignInClick = () => {
     const { signInRequest } = this.props;
     const { email, password } = this.state;
@@ -61,10 +60,14 @@ class Login extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
 const mapDispatchToProps = dispatch =>
   bindActionCreators(AuthActions, dispatch);
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Login);

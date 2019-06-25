@@ -24,3 +24,10 @@ export const ProductName = styled.Text`
   color: ${colors.darker};
   margin-top: ${metrics.baseMargin}px;
 `;
+
+export const ProductValue = styled.Text`
+  font-size: ${metrics.fontSizeDown}px;
+  font-weight: bold;
+  color: ${colors.regular};
+  margin-top: ${metrics.baseMargin}px;
+`;

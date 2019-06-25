@@ -19,17 +19,20 @@ export default class ProductsTypes extends Component {
         {
           id: 1,
           description: "Grande",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
+          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
+          price: 76.0
         },
         {
           id: 2,
           description: "Média",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
+          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
+          price: 42.0
         },
         {
           id: 3,
           description: "Pequena",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
+          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
+          price: 29.0
         }
       ]
     }
@@ -54,7 +57,7 @@ export default class ProductsTypes extends Component {
           source={require("~/img/headerbackground/header-background.png")}
         >
           <IconBack onPress={this.handleBackClick} />
-          <HeaderText>Selecione um tipo</HeaderText>
+          <HeaderText>Selecione um Tamanho</HeaderText>
           <View />
         </Header>
         <ProductsTypesList

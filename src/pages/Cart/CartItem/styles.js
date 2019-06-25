@@ -4,10 +4,10 @@ import { metrics, colors } from "~/styles";
 
 export const Container = styled.TouchableOpacity`
   flex-direction: row;
-  margin-left: ${metrics.baseMargin * 2}px;
-  margin-right: ${metrics.baseMargin * 2}px;
+  margin-left: ${metrics.baseMargin}px;
+  margin-right: ${metrics.baseMargin}px;
   margin-bottom: ${metrics.baseMargin}px;
-  border-radius: ${metrics.baseRadius * 2}px;
+  border-radius: ${metrics.baseRadius}px;
 
   padding: 5px;
   background-color: ${colors.white};

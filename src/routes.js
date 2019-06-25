@@ -5,6 +5,8 @@ import Products from "~/pages/Products";
 import ProductsTypes from "~/pages/ProductsTypes";
 import ProductsSizes from "~/pages/ProductsSizes";
 import Cart from "~/pages/Cart";
+import Checkout from "~/pages/Checkout";
+import Orders from "~/pages/Orders";
 
 const Routes = createAppContainer(
   createSwitchNavigator(
@@ -14,7 +16,9 @@ const Routes = createAppContainer(
       Products,
       ProductsTypes,
       ProductsSizes,
-      Cart
+      Cart,
+      Checkout,
+      Orders
     },
     {
       defaultNavigationOptions: {

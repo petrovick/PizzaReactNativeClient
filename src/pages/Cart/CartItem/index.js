@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-native";
+import { Button, TouchableOpacity } from "react-native";
 
 import {
   Container,
@@ -12,7 +12,7 @@ import {
 } from "./styles";
 
 const ProductItem = ({ cartItem, onItemRemoveClick }) => (
-  <Container onPress={() => CartItem(cartItem)}>
+  <Container>
     <Image source={{ uri: cartItem.url }} />
     <ContainerText>
       <ProductText>{cartItem.product.name}</ProductText>
@@ -21,7 +21,9 @@ const ProductItem = ({ cartItem, onItemRemoveClick }) => (
       </ProductDescriptionText>
       <ProductTimeText>{cartItem.value}</ProductTimeText>
     </ContainerText>
-    <IconRemove />
+    <TouchableOpacity onPress={() => onItemRemoveClick(cartItem)}>
+      <IconRemove />
+    </TouchableOpacity>
   </Container>
 );
 

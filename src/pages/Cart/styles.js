@@ -9,25 +9,24 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.ImageBackground`
-  padding-left: 20;
-  padding-right: 20;
-  padding-top: ${getStatusBarHeight() + 10};
-  height: ${54 + getStatusBarHeight() + 10};
+  padding-top: ${getStatusBarHeight()};
+  height: ${getStatusBarHeight() + metrics.headerHeight};
   background-color: transparent;
 
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
 `;
 
 export const HeaderText = styled.Text`
   color: ${colors.white};
   font-size: ${(metrics.fontSizeUp * 4) / 3}px;
   font-weight: bold;
+  margin-right: ${metrics.baseMargin}px;
 `;
 
 export const ProductsList = styled.FlatList`
   flex: 1;
+  margin-top: -60px;
 `;
 
 export const IconLimparPedidos = styled(Icon).attrs({
@@ -58,9 +57,26 @@ export const Footer = styled.View`
 export const IconAddProduct = styled(Icon).attrs({
   color: `${colors.white}`,
   size: 24,
-  name: "add_shopping_cart"
+  name: "add-shopping-cart"
 })`
   background-color: ${colors.orderIcon};
   border-radius: 50px;
   padding: ${metrics.basePadding}px;
+`;
+
+export const CheckoutButton = styled.TouchableOpacity`
+  height: 40px;
+  width: 140px;
+  border-radius: ${metrics.baseRadius * 6}px;
+  margin-right: ${metrics.baseMargin}px;
+  background-color: ${colors.orderIcon};
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const CheckoutButtonText = styled.Text`
+  color: ${colors.white};
+  font-weight: bold;
+  font-size: ${metrics.fontSizeUp}px;
 `;

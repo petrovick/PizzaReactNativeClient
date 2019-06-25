@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import { TouchableOpacity } from "react-native";
 import ProductItem from "./ProductItem";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import ProdutsActions from "~/store/ducks/products";
+
 import {
   Container,
   Header,
   HeaderText,
   ProductsList,
-  IconLimparPedidos,
-  IconPedidos
+  IconOrders,
+  IconCart
 } from "./styles";
 
-export default class Products extends Component {
+class Products extends Component {
   state = {
     Products: {
       data: [
@@ -43,10 +47,10 @@ export default class Products extends Component {
     }
   };
 
-  handleProductClick = () => {
+  handleProductClick = product => {
     console.tron.warn("handleProductClick");
     const { navigation } = this.props;
-    navigation.navigate("ProductsTypes");
+    navigation.navigate("ProductsTypes", { product });
   };
 
   handleCartClick = () => {
@@ -54,28 +58,55 @@ export default class Products extends Component {
     navigation.navigate("Cart");
   };
 
+  handleOrdersClick = () => {
+    const { navigation } = this.props;
+    navigation.navigate("Orders");
+  };
+
+  componentDidMount() {
+    const { productsListRequest } = this.props;
+    productsListRequest();
+  }
+
   render() {
-    const { Products } = this.state;
+    const { data } = this.props.products;
+    if (!data) {
+      return <View>Dados vazio.</View>;
+    }
     return (
       <Container>
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <IconLimparPedidos name="cog" />
+          <TouchableOpacity onPress={() => this.handleOrdersClick()}>
+            <IconOrders />
+          </TouchableOpacity>
           <HeaderText>Pizzaria Don Juan</HeaderText>
           <TouchableOpacity onPress={() => this.handleCartClick()}>
-            <IconPedidos name="shopping-bag" />
+            <IconCart />
           </TouchableOpacity>
         </Header>
 
         <ProductsList
-          data={Products.data}
+          data={data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
-            <ProductItem product={item} OnItemClick={this.handleProductClick} />
+            <ProductItem product={item} onItemClick={this.handleProductClick} />
           )}
         />
       </Container>
     );
   }
 }
+
+const mapStateToProps = state => ({
+  products: state.products
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(ProdutsActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Products);

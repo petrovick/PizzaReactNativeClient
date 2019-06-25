@@ -26,19 +26,19 @@ export const ContainerText = styled.View`
   margin-right: 10px;
 `;
 
-export const ProductText = styled.Text`
+export const OrderNumberText = styled.Text`
   font-size: ${metrics.fontSizeUp}px;
   color: ${colors.darker};
   font-weight: bold;
 `;
 
-export const ProductDescriptionText = styled.Text`
+export const OrderDateText = styled.Text`
   font-size: ${metrics.fontSizeDown}px;
   color: ${colors.regular};
   margin-top: ${metrics.baseMargin}px;
 `;
 
-export const ProductTimeText = styled.Text`
+export const OrderPriceText = styled.Text`
   font-size: ${metrics.fontSizeDown}px;
   color: ${colors.regular};
   margin-top: ${metrics.baseMargin}px;

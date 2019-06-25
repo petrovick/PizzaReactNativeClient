@@ -2,6 +2,10 @@ import React, { Component } from "react";
 
 import { View } from "react-native";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import ProdutTypesActions from "~/store/ducks/productTypes";
+
 import {
   Container,
   IconBack,
@@ -12,7 +16,7 @@ import {
 
 import ProductTypeItem from "./ProductTypeItem";
 
-export default class ProductsTypes extends Component {
+class ProductsTypes extends Component {
   state = {
     productsTypes: {
       data: [
@@ -50,6 +54,12 @@ export default class ProductsTypes extends Component {
     }
   };
 
+  componentDidMount() {
+    const { productTypesListRequest, navigation } = this.props;
+    const product = navigation.getParam("product");
+    productTypesListRequest(product.id);
+  }
+
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("Products");
@@ -61,18 +71,18 @@ export default class ProductsTypes extends Component {
   };
 
   render() {
-    const { productsTypes } = this.state;
+    const { productTypes } = this.props;
     return (
       <Container>
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
           <IconBack onPress={this.handleBackClick} />
-          <HeaderText>Selecione um tipo</HeaderText>
+          <HeaderText>Selecione um Tipo</HeaderText>
           <View />
         </Header>
         <ProductsTypesList
-          data={productsTypes.data}
+          data={productTypes.data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
             <ProductTypeItem
@@ -86,3 +96,14 @@ export default class ProductsTypes extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  productTypes: state.productTypes
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(ProdutTypesActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ProductsTypes);
