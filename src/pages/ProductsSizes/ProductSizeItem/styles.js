@@ -9,7 +9,7 @@ export const Container = styled.TouchableOpacity`
   margin-right: ${metrics.baseMargin * 2}px;
   margin-top: ${metrics.baseMargin * 2}px;
   align-items: center;
-  max-width: ${(metrics.screenWidth - 60) / 2};
+  max-width: ${(metrics.screenWidth - 100) / 2};
   background-color: ${colors.white};
 `;
 

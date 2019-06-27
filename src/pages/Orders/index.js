@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import { TouchableOpacity } from "react-native";
 import OrderItem from "./OrderItem";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import OrdersActions from "~/store/ducks/orders";
+
 import { Container, Header, HeaderText, OrdersList, IconBack } from "./styles";
 
-export default class Orders extends Component {
+class Orders extends Component {
   state = {
     Orders: {
       data: [
@@ -27,13 +31,18 @@ export default class Orders extends Component {
     }
   };
 
+  componentDidMount() {
+    const { ordersListRequest } = this.props;
+    ordersListRequest();
+  }
+
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("Products");
   };
 
   render() {
-    const { Orders } = this.state;
+    const { orders } = this.props;
     return (
       <Container>
         <Header
@@ -45,7 +54,7 @@ export default class Orders extends Component {
           <HeaderText>Pizzaria Don Juan</HeaderText>
         </Header>
         <OrdersList
-          data={Orders.data}
+          data={orders.data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => <OrderItem order={item} />}
         />
@@ -53,3 +62,14 @@ export default class Orders extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  orders: state.orders
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(OrdersActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Orders);

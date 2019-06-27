@@ -67,7 +67,8 @@ class ProductsTypes extends Component {
 
   handleTypeProductClick = productType => {
     const { navigation } = this.props;
-    navigation.navigate("ProductsSizes");
+    const product = navigation.getParam("product");
+    navigation.navigate("ProductsSizes", { productType, product });
   };
 
   render() {

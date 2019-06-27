@@ -7,19 +7,19 @@ import {
   ContainerText,
   ProductText,
   ProductDescriptionText,
-  ProductTimeText,
+  ProductPriceText,
   IconRemove
 } from "./styles";
 
 const ProductItem = ({ cartItem, onItemRemoveClick }) => (
   <Container>
-    <Image source={{ uri: cartItem.url }} />
+    <Image source={{ uri: cartItem.productType.url }} />
     <ContainerText>
-      <ProductText>{cartItem.product.name}</ProductText>
+      <ProductText>{cartItem.productType.name}</ProductText>
       <ProductDescriptionText>
         {cartItem.productSize.description}
       </ProductDescriptionText>
-      <ProductTimeText>{cartItem.value}</ProductTimeText>
+      <ProductPriceText>R$ {cartItem.price}</ProductPriceText>
     </ContainerText>
     <TouchableOpacity onPress={() => onItemRemoveClick(cartItem)}>
       <IconRemove />

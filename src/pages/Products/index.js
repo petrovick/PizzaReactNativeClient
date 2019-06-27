@@ -63,9 +63,13 @@ class Products extends Component {
     navigation.navigate("Orders");
   };
 
-  componentDidMount() {
+  listProducts = () => {
     const { productsListRequest } = this.props;
     productsListRequest();
+  };
+
+  componentDidMount() {
+    this.listProducts();
   }
 
   render() {
@@ -93,6 +97,7 @@ class Products extends Component {
           renderItem={({ item }) => (
             <ProductItem product={item} onItemClick={this.handleProductClick} />
           )}
+          onRefresh={this.listProducts}
         />
       </Container>
     );

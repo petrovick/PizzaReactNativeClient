@@ -39,7 +39,8 @@ export const OrderDateText = styled.Text`
 `;
 
 export const OrderPriceText = styled.Text`
-  font-size: ${metrics.fontSizeDown}px;
-  color: ${colors.regular};
+  font-size: ${metrics.fontSizeUp}px;
+  color: ${colors.black};
   margin-top: ${metrics.baseMargin}px;
+  font-weight: bold;
 `;

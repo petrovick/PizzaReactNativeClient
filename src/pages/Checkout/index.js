@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Icon from "react-native-vector-icons/Entypo";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import CartActions from "~/store/ducks/cart";
+
 import { View, Text, TouchableOpacity } from "react-native";
 
 import {
@@ -20,10 +24,37 @@ import {
   CheckoutButtonText
 } from "./styles";
 
-export default class Checkout extends Component {
+class Checkout extends Component {
+  state = {
+    obs: "",
+    zip: "",
+    street: "",
+    number: "",
+    neighborhood: ""
+  };
+
   handleBackClick = () => {
-    const { navigation } = this.props;
+    const { navigation, cart } = this.props;
+    const {
+      obs,
+      zip,
+      street,
+      number,
+      neighborhood
+    } = this.state.checkoutDetails;
     navigation.navigate("Cart");
+  };
+
+  handleFinishClick = () => {
+    const { commitCheckoutOrderRequest, cart } = this.props;
+    const productTypeSizes = cart.data.map(item => {
+      return { id: item.id, price: item.price };
+    });
+    commitCheckoutOrderRequest({
+      ...this.state,
+      productTypeSizes: productTypeSizes,
+      total: cart.total
+    });
   };
 
   render() {
@@ -38,15 +69,30 @@ export default class Checkout extends Component {
           <HeaderText>Realizar Pedido</HeaderText>
           <TotalPriceText>R$ 107,50</TotalPriceText>
         </Header>
-        <ObsTextInput placeholder="Alguma observação?" />
-        <CepInputTextInput placeholder="Qual seu CEP?" />
+        <ObsTextInput
+          onChangeText={text => this.setState({ obs: text })}
+          placeholder="Alguma observação?"
+        />
+        <CepInputTextInput
+          placeholder="Qual seu CEP?"
+          onChangeText={text => this.setState({ zip: text })}
+        />
         <AddressContainer>
-          <StreetTextInput placeholder="Rua" />
-          <NumberTextInput placeholder="Nº" />
+          <StreetTextInput
+            placeholder="Rua"
+            onChangeText={text => this.setState({ street: text })}
+          />
+          <NumberTextInput
+            placeholder="Nº"
+            onChangeText={text => this.setState({ number: text })}
+          />
         </AddressContainer>
-        <NeightborInputTextInput placeholder="Bairro" />
+        <NeightborInputTextInput
+          placeholder="Bairro"
+          onChangeText={text => this.setState({ neighborhood: text })}
+        />
         <ContainerButton>
-          <CheckoutButton>
+          <CheckoutButton onPress={() => this.handleFinishClick()}>
             <CheckoutButtonText>Finalizar</CheckoutButtonText>
             <Icon name="chevron-right" size={24} color="#FFF" />
           </CheckoutButton>
@@ -55,3 +101,15 @@ export default class Checkout extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Checkout);
