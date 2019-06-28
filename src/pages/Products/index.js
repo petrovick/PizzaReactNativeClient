@@ -73,7 +73,7 @@ class Products extends Component {
   }
 
   render() {
-    const { data } = this.props.products;
+    const { data, loading } = this.props.products;
     if (!data) {
       return <View>Dados vazio.</View>;
     }
@@ -97,6 +97,7 @@ class Products extends Component {
           renderItem={({ item }) => (
             <ProductItem product={item} onItemClick={this.handleProductClick} />
           )}
+          refreshing={loading}
           onRefresh={this.listProducts}
         />
       </Container>
