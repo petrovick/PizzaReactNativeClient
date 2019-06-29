@@ -9,6 +9,7 @@ import ProdutsActions from "~/store/ducks/products";
 import {
   Container,
   Header,
+  HeaderLeft,
   HeaderText,
   ProductsList,
   IconOrders,
@@ -82,10 +83,12 @@ class Products extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleOrdersClick()}>
-            <IconOrders />
-          </TouchableOpacity>
-          <HeaderText>Pizzaria Don Juan</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleOrdersClick()}>
+              <IconOrders />
+            </TouchableOpacity>
+            <HeaderText>Pizzaria Don Juan</HeaderText>
+          </HeaderLeft>
           <TouchableOpacity onPress={() => this.handleCartClick()}>
             <IconCart />
           </TouchableOpacity>

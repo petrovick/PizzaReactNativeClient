@@ -10,9 +10,11 @@ import CartActions from "~/store/ducks/cart";
 import {
   Container,
   Header,
+  HeaderLeft,
+  IconBack,
   HeaderText,
+  TotalPriceText,
   ProductsList,
-  IconLimparPedidos,
   Footer,
   IconAddProduct,
   CheckoutButton,
@@ -41,10 +43,13 @@ class Cart extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleBackClick()}>
-            <IconLimparPedidos name="chevron-left" />
-          </TouchableOpacity>
-          <HeaderText>Carrinho</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleBackClick()}>
+              <IconBack name="chevron-left" />
+            </TouchableOpacity>
+            <HeaderText>Carrinho</HeaderText>
+          </HeaderLeft>
+          <TotalPriceText>R$ 107</TotalPriceText>
         </Header>
 
         <ProductsList

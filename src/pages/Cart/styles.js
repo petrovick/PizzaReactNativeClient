@@ -17,23 +17,41 @@ export const Header = styled.ImageBackground`
   justify-content: space-between;
 `;
 
+export const HeaderLeft = styled.View`
+  flex-direction: row;
+`;
+
+export const IconBack = styled(Icon).attrs({
+  color: `${colors.white}`,
+  size: 24,
+  name: "shopping-bag"
+})`
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
+
 export const HeaderText = styled.Text`
   color: ${colors.white};
   font-size: ${(metrics.fontSizeUp * 4) / 3}px;
   font-weight: bold;
-  margin-right: ${metrics.baseMargin}px;
+  padding: ${metrics.basePadding / 4}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
+
+export const TotalPriceText = styled.Text`
+  color: ${colors.white};
+  font-size: ${(metrics.fontSizeUp * 4) / 3}px;
+  font-weight: bold;
+  padding: ${metrics.basePadding / 4}px;
+  margin-right: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
 export const ProductsList = styled.FlatList`
   flex: 1;
   margin-top: -60px;
 `;
-
-export const IconLimparPedidos = styled(Icon).attrs({
-  color: `${colors.white}`,
-  size: 24,
-  name: "shopping-bag"
-})``;
 
 export const IconPedidos = styled(Icon).attrs({
   color: `${colors.white}`,

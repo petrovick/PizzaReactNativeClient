@@ -11,6 +11,7 @@ import {
   Container,
   IconBack,
   Header,
+  HeaderLeft,
   HeaderText,
   TotalPriceText,
   ObsTextInput,
@@ -34,14 +35,7 @@ class Checkout extends Component {
   };
 
   handleBackClick = () => {
-    const { navigation, cart } = this.props;
-    const {
-      obs,
-      zip,
-      street,
-      number,
-      neighborhood
-    } = this.state.checkoutDetails;
+    const { navigation } = this.props;
     navigation.navigate("Cart");
   };
 
@@ -63,10 +57,12 @@ class Checkout extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleBackClick()}>
-            <IconBack />
-          </TouchableOpacity>
-          <HeaderText>Realizar Pedido</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleBackClick()}>
+              <IconBack />
+            </TouchableOpacity>
+            <HeaderText>Realizar Pedido</HeaderText>
+          </HeaderLeft>
           <TotalPriceText>R$ 107,50</TotalPriceText>
         </Header>
         <ObsTextInput

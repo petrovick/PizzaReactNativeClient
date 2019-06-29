@@ -4,14 +4,13 @@ import { colors, metrics } from "~/styles";
 export const Container = styled.TouchableOpacity`
   flex: 1;
   border-radius: ${metrics.baseRadius}px;
-  padding: ${metrics.basePadding}px;
-  margin-left: ${metrics.baseMargin}px;
-  margin-right: ${metrics.baseMargin}px;
   margin-top: ${metrics.baseMargin}px;
-
-  align-items: center;
-  max-width: ${(metrics.screenWidth - 100) / 2};
+  /*margin-left: ${metrics.baseMargin}px;
+  margin-right: ${metrics.baseMargin}px;
+  */align-items: center;
+  max-width: ${(metrics.screenWidth - 60) / 2};
   background-color: ${colors.white};
+  justify-content: center;
 `;
 
 export const ProductImage = styled.Image`

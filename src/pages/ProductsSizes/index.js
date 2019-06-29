@@ -12,8 +12,9 @@ import {
   Container,
   IconBack,
   Header,
+  HeaderLeft,
   HeaderText,
-  ProductsTypesList
+  ProductsSizesList
 } from "./styles";
 
 import ProductSizeItem from "./ProductSizeItem";
@@ -86,11 +87,12 @@ class ProductsSizes extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <IconBack onPress={this.handleBackClick} />
-          <HeaderText>Selecione um Tamanho</HeaderText>
-          <View />
+          <HeaderLeft>
+            <IconBack onPress={this.handleBackClick} />
+            <HeaderText>Selecione um Tamanho</HeaderText>
+          </HeaderLeft>
         </Header>
-        <ProductsTypesList
+        <ProductsSizesList
           data={productSizes.data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (

@@ -6,7 +6,14 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import OrdersActions from "~/store/ducks/orders";
 
-import { Container, Header, HeaderText, OrdersList, IconBack } from "./styles";
+import {
+  Container,
+  Header,
+  HeaderLeft,
+  HeaderText,
+  OrdersList,
+  IconBack
+} from "./styles";
 
 class Orders extends Component {
   state = {
@@ -48,10 +55,12 @@ class Orders extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleBackClick()}>
-            <IconBack />
-          </TouchableOpacity>
-          <HeaderText>Pizzaria Don Juan</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleBackClick()}>
+              <IconBack />
+            </TouchableOpacity>
+            <HeaderText>Pizzaria Don Juan</HeaderText>
+          </HeaderLeft>
         </Header>
         <OrdersList
           data={orders.data}

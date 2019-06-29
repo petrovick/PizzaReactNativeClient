@@ -17,25 +17,35 @@ export const Header = styled.ImageBackground`
   justify-content: space-between;
 `;
 
+export const HeaderLeft = styled.View`
+  flex-direction: row;
+`;
+
 export const IconBack = styled(Icon).attrs({
-  name: "chevron-left",
   size: 24,
+  name: "chevron-left",
   color: "#FFF"
 })`
-  margin-left: ${metrics.baseMargin}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
 export const HeaderText = styled.Text`
   color: ${colors.white};
   font-size: ${(metrics.fontSizeUp * 4) / 3}px;
   font-weight: bold;
+  padding: ${metrics.basePadding / 4}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
 export const TotalPriceText = styled.Text`
   color: ${colors.white};
   font-size: ${(metrics.fontSizeDown * 4) / 3}px;
   font-weight: bold;
-  margin-right: ${metrics.baseMargin}px;
+  padding: ${metrics.basePadding / 4}px;
+  margin-right: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
 export const ObsTextInput = styled.TextInput.attrs({
