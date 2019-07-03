@@ -6,10 +6,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ProdutTypesActions from "~/store/ducks/productTypes";
 
+import { metrics, colors } from "~/styles";
+
 import {
   Container,
   IconBack,
   Header,
+  HeaderLeft,
   HeaderText,
   ProductsTypesList
 } from "./styles";
@@ -55,6 +58,7 @@ class ProductsTypes extends Component {
   };
 
   componentDidMount() {
+    console.tron.log(metrics);
     const { productTypesListRequest, navigation } = this.props;
     const product = navigation.getParam("product");
     productTypesListRequest(product.id);
@@ -67,7 +71,8 @@ class ProductsTypes extends Component {
 
   handleTypeProductClick = productType => {
     const { navigation } = this.props;
-    navigation.navigate("ProductsSizes");
+    const product = navigation.getParam("product");
+    navigation.navigate("ProductsSizes", { productType, product });
   };
 
   render() {
@@ -77,9 +82,10 @@ class ProductsTypes extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <IconBack onPress={this.handleBackClick} />
-          <HeaderText>Selecione um Tipo</HeaderText>
-          <View />
+          <HeaderLeft>
+            <IconBack onPress={this.handleBackClick} />
+            <HeaderText>Selecione um Tipo</HeaderText>
+          </HeaderLeft>
         </Header>
         <ProductsTypesList
           data={productTypes.data}

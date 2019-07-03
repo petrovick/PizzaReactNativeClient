@@ -9,34 +9,42 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.ImageBackground`
-  padding-left: 20;
-  padding-right: 20;
-  padding-top: ${getStatusBarHeight() + 10};
-  height: ${54 + getStatusBarHeight() + 10};
+  padding-top: ${getStatusBarHeight()};
+  height: ${getStatusBarHeight() + metrics.headerHeight}px;
   background-color: transparent;
 
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+`;
+
+export const HeaderLeft = styled.View`
+  flex-direction: row;
 `;
 
 export const IconBack = styled(Icon).attrs({
   size: 24,
   name: "chevron-left",
   color: `${colors.white}`
-})``;
+})`
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
 
 export const HeaderText = styled.Text`
   color: ${colors.white};
   font-size: ${(metrics.fontSizeUp * 4) / 3}px;
   font-weight: bold;
+  padding: ${metrics.basePadding / 4}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
-export const ProductsTypesList = styled.FlatList.attrs({
+export const ProductsSizesList = styled.FlatList.attrs({
   columnWrapperStyle: {
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     justifyContent: "space-between"
   }
 })`
   flex: 1;
+  margin-top: -60px;
 `;

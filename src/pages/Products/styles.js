@@ -18,15 +18,8 @@ export const Header = styled.ImageBackground`
   justify-content: space-between;
 `;
 
-export const HeaderText = styled.Text`
-  color: ${colors.white};
-  font-size: ${(metrics.fontSizeUp * 4) / 3}px;
-  font-weight: bold;
-`;
-
-export const ProductsList = styled.FlatList`
-  flex: 1;
-  margin-top: -60px;
+export const HeaderLeft = styled.View`
+  flex-direction: row;
 `;
 
 export const IconOrders = styled(IconAwesome).attrs({
@@ -34,7 +27,17 @@ export const IconOrders = styled(IconAwesome).attrs({
   size: 24,
   name: "history"
 })`
-  margin-left: ${metrics.baseMargin}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
+
+export const HeaderText = styled.Text`
+  color: ${colors.white};
+  font-size: ${(metrics.fontSizeUp * 4) / 3}px;
+  font-weight: bold;
+  padding: ${metrics.basePadding / 4}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
 `;
 
 export const IconCart = styled(Icon).attrs({
@@ -46,4 +49,11 @@ export const IconCart = styled(Icon).attrs({
   border-radius: 50px;
   padding: ${metrics.basePadding}px;
   margin-right: ${metrics.baseMargin}px;
+  align-self: flex-end;
+  margin-top: ${metrics.baseMargin}px;
+`;
+
+export const ProductsList = styled.FlatList`
+  flex: 1;
+  margin-top: -60px;
 `;

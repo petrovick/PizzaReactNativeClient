@@ -3,59 +3,25 @@ import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import CartItem from "./CartItem";
 
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import CartActions from "~/store/ducks/cart";
+
 import {
   Container,
   Header,
+  HeaderLeft,
+  IconBack,
   HeaderText,
+  TotalPriceText,
   ProductsList,
-  IconLimparPedidos,
   Footer,
   IconAddProduct,
   CheckoutButton,
   CheckoutButtonText
 } from "./styles";
 
-export default class Products extends Component {
-  state = {
-    cart: {
-      data: [
-        {
-          id: 1,
-          product: {
-            name: "Pizza Calabresa"
-          },
-          productSize: {
-            description: "Média"
-          },
-          value: 42.0,
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 2,
-          product: {
-            name: "Pizza 4 Queijos"
-          },
-          productSize: {
-            description: "Pequena"
-          },
-          value: 29.0,
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 3,
-          product: {
-            name: "Coca Cola"
-          },
-          productSize: {
-            description: "300ML"
-          },
-          value: 6.0,
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        }
-      ]
-    }
-  };
-
+class Cart extends Component {
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("Products");
@@ -71,16 +37,19 @@ export default class Products extends Component {
   };
 
   render() {
-    const { cart } = this.state;
+    const { cart } = this.props;
     return (
       <Container>
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleBackClick()}>
-            <IconLimparPedidos name="chevron-left" />
-          </TouchableOpacity>
-          <HeaderText>Carrinho</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleBackClick()}>
+              <IconBack name="chevron-left" />
+            </TouchableOpacity>
+            <HeaderText>Carrinho</HeaderText>
+          </HeaderLeft>
+          <TotalPriceText>R$ 107</TotalPriceText>
         </Header>
 
         <ProductsList
@@ -109,3 +78,15 @@ export default class Products extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  cart: state.cart
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(CartActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Cart);

@@ -9,6 +9,7 @@ import ProdutsActions from "~/store/ducks/products";
 import {
   Container,
   Header,
+  HeaderLeft,
   HeaderText,
   ProductsList,
   IconOrders,
@@ -63,13 +64,17 @@ class Products extends Component {
     navigation.navigate("Orders");
   };
 
-  componentDidMount() {
+  listProducts = () => {
     const { productsListRequest } = this.props;
     productsListRequest();
+  };
+
+  componentDidMount() {
+    this.listProducts();
   }
 
   render() {
-    const { data } = this.props.products;
+    const { data, loading } = this.props.products;
     if (!data) {
       return <View>Dados vazio.</View>;
     }
@@ -78,10 +83,12 @@ class Products extends Component {
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
-          <TouchableOpacity onPress={() => this.handleOrdersClick()}>
-            <IconOrders />
-          </TouchableOpacity>
-          <HeaderText>Pizzaria Don Juan</HeaderText>
+          <HeaderLeft>
+            <TouchableOpacity onPress={() => this.handleOrdersClick()}>
+              <IconOrders />
+            </TouchableOpacity>
+            <HeaderText>Pizzaria Don Juan</HeaderText>
+          </HeaderLeft>
           <TouchableOpacity onPress={() => this.handleCartClick()}>
             <IconCart />
           </TouchableOpacity>
@@ -93,6 +100,8 @@ class Products extends Component {
           renderItem={({ item }) => (
             <ProductItem product={item} onItemClick={this.handleProductClick} />
           )}
+          refreshing={loading}
+          onRefresh={this.listProducts}
         />
       </Container>
     );

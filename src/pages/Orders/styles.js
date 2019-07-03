@@ -17,16 +17,8 @@ export const Header = styled.ImageBackground`
   justify-content: space-between;
 `;
 
-export const HeaderText = styled.Text`
-  color: ${colors.white};
-  font-size: ${(metrics.fontSizeUp * 4) / 3}px;
-  font-weight: bold;
-  margin-right: ${metrics.baseMargin}px;
-`;
-
-export const OrdersList = styled.FlatList`
-  flex: 1;
-  margin-top: -60px;
+export const HeaderLeft = styled.View`
+  flex-direction: row;
 `;
 
 export const IconBack = styled(Icon).attrs({
@@ -35,5 +27,20 @@ export const IconBack = styled(Icon).attrs({
   name: "chevron-left"
 })`
   border-radius: 50px;
-  padding: ${metrics.basePadding}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
+
+export const HeaderText = styled.Text`
+  color: ${colors.white};
+  font-size: ${(metrics.fontSizeUp * 4) / 3}px;
+  font-weight: bold;
+  padding: ${metrics.basePadding / 4}px;
+  margin-left: ${metrics.baseMargin * 2}px;
+  margin-top: ${metrics.baseMargin * 2}px;
+`;
+
+export const OrdersList = styled.FlatList`
+  flex: 1;
+  margin-top: -60px;
 `;

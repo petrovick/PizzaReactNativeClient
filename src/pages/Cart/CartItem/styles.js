@@ -15,7 +15,7 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Image = styled.Image`
-  width: 92px;
+  width: 133px;
   height: 133px;
   border-radius: ${metrics.baseRadius}px;
   margin-left: ${metrics.baseMargin}px;
@@ -30,7 +30,6 @@ export const ContainerText = styled.View`
 export const ProductText = styled.Text`
   font-size: ${metrics.fontSizeUp}px;
   color: ${colors.darker};
-  font-weight: bold;
 `;
 
 export const ProductDescriptionText = styled.Text`
@@ -39,10 +38,11 @@ export const ProductDescriptionText = styled.Text`
   margin-top: ${metrics.baseMargin}px;
 `;
 
-export const ProductTimeText = styled.Text`
-  font-size: ${metrics.fontSizeDown}px;
-  color: ${colors.regular};
+export const ProductPriceText = styled.Text`
+  font-size: ${metrics.fontSizeUp}px;
+  color: ${colors.black};
   margin-top: ${metrics.baseMargin}px;
+  font-weight: bold;
 `;
 
 export const IconRemove = styled(Icon).attrs({
