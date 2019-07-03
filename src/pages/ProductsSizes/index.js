@@ -13,31 +13,6 @@ import {
 import ProductSizeItem from "./ProductSizeItem";
 
 export default class ProductsTypes extends Component {
-  state = {
-    productsSizes: {
-      data: [
-        {
-          id: 1,
-          description: "Grande",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
-          price: 76.0
-        },
-        {
-          id: 2,
-          description: "Média",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
-          price: 42.0
-        },
-        {
-          id: 3,
-          description: "Pequena",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png",
-          price: 29.0
-        }
-      ]
-    }
-  };
-
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("ProductsTypes");
