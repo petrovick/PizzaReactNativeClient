@@ -19,6 +19,19 @@ import {
 
 import ProductSizeItem from "./ProductSizeItem";
 class ProductsSizes extends Component {
+  static propTypes = {
+    navigation: PropTypes.func.isRequired,
+    productSizesListRequest: PropTypes.func.isRequired,
+    addToCart: PropTypes.func.isRequired,
+    sumToTotal: PropTypes.func.isRequired,
+    displayInfo: PropTypes.func.isRequired,
+    cart: PropTypes.shape({
+      total: PropTypes.number
+    }),
+    productSizes: PropTypes.shape({
+      data: PropTypes.array()
+    })
+  };
   componentDidMount() {
     const { productSizesListRequest, navigation } = this.props;
     const productType = navigation.getParam("productType");

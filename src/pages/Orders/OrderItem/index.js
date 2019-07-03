@@ -22,4 +22,13 @@ const OrderItem = ({ order, onItemClick }) => (
   </Container>
 );
 
+OrderItem.propTypes = {
+  onItemClick: PropTypes.func.isRequired,
+  orders: PropTypes.shape({
+    id: PropTypes.number,
+    date: PropTypes.string,
+    total_price: PropTypes.string
+  })
+};
+
 export default OrderItem;

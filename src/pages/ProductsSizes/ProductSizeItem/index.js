@@ -12,4 +12,14 @@ const ProductSizeItem = ({ productSize: item, onItemClick }) => (
   </Container>
 );
 
+ProductSizeItem.propTypes = {
+  onItemClick: PropTypes.func.isRequired,
+  productSize: PropTypes.shape({
+    ProductSize: PropTypes.shape({
+      description: PropTypes.string
+    }),
+    price: PropTypes.number
+  })
+};
+
 export default ProductSizeItem;

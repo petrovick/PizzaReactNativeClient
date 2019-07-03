@@ -17,35 +17,13 @@ import {
 } from "./styles";
 
 class Products extends Component {
-  state = {
-    Products: {
-      data: [
-        {
-          id: 1,
-          name: "Pizza",
-          description:
-            "Mais de 50 sabores de pizza em até 4 tamanhos diferentes de fome.",
-          time: "30 mins",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 2,
-          name: "Massas",
-          description:
-            "10 tipos de massas com diferentes molhos para te satisfazer.",
-          time: "25 mins",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 3,
-          name: "Calzones",
-          description:
-            "Calzones super recheados com mais de 50 sabores diferentes.",
-          time: "15 mins",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        }
-      ]
-    }
+  static propTypes = {
+    navigation: PropTypes.func.isRequired,
+    productsListRequest: PropTypes.func.isRequired,
+    products: PropTypes.shape({
+      data: PropTypes.array(),
+      loading: PropTypes.bool
+    })
   };
 
   handleProductClick = product => {

@@ -11,4 +11,12 @@ const ProductTypeItem = ({ productType, onItemClick }) => (
   </Container>
 );
 
+ProductTypeItem.propTypes = {
+  onItemClick: PropTypes.func.isRequired,
+  productType: PropTypes.shape({
+    url: PropTypes.string,
+    name: PropTypes.string
+  })
+};
+
 export default ProductTypeItem;

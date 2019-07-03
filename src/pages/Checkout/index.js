@@ -26,6 +26,14 @@ import {
 } from "./styles";
 
 class Checkout extends Component {
+  static propTypes = {
+    navigation: PropTypes.func.isRequired,
+    commitCheckoutOrderRequest: PropTypes.func.isRequired,
+    cart: PropTypes.shape({
+      data: PropTypes.array()
+    })
+  };
+
   state = {
     obs: "",
     zip: "",

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -19,10 +20,15 @@ import {
 } from "./styles";
 
 class Login extends Component {
+  static propTypes = {
+    signInRequest: PropTypes.isFunc.isRequired
+  };
+
   state = {
     email: "petrovickg@hotmail.com",
     password: "123456"
   };
+
   handleSignInClick = () => {
     const { signInRequest } = this.props;
     const { email, password } = this.state;

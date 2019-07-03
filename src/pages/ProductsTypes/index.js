@@ -20,45 +20,15 @@ import {
 import ProductTypeItem from "./ProductTypeItem";
 
 class ProductsTypes extends Component {
-  state = {
-    productsTypes: {
-      data: [
-        {
-          id: 1,
-          name: "Portuguesa",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 2,
-          name: "Calabresa",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 3,
-          name: "Frango Frito",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 4,
-          name: "Marguerita",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 5,
-          name: "A Moda",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        },
-        {
-          id: 6,
-          name: "Suiça",
-          url: "https://s3-sa-east-1.amazonaws.com/gonative/cover1.png"
-        }
-      ]
-    }
+  static propTypes = {
+    productTypesListRequest: PropTypes.func.isRequired,
+    navigaiton: PropTypes.func.isRequired,
+    productTypes: PropTypes.shape({
+      data: PropTypes.array()
+    })
   };
 
   componentDidMount() {
-    console.tron.log(metrics);
     const { productTypesListRequest, navigation } = this.props;
     const product = navigation.getParam("product");
     productTypesListRequest(product.id);

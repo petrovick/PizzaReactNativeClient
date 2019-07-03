@@ -22,6 +22,12 @@ import {
 } from "./styles";
 
 class Cart extends Component {
+  static propTypes = {
+    navigation: PropTypes.func.isRequired,
+    cart: PropTypes.shape({
+      data: PropTypes.array()
+    })
+  };
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("Products");

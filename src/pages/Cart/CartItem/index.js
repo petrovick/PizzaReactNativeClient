@@ -27,4 +27,18 @@ const ProductItem = ({ cartItem, onItemRemoveClick }) => (
   </Container>
 );
 
+ProductItem.propTypes = {
+  onItemRemoveClick: PropTypes.func.isRequired,
+  cartItem: PropTypes.shape({
+    price: PropTypes.string,
+    productType: PropTypes.shape({
+      url: PropTypes.string,
+      name: PropTypes.string
+    }),
+    productSize: PropTypes.shape({
+      description: PropTypes.string
+    })
+  })
+};
+
 export default ProductItem;

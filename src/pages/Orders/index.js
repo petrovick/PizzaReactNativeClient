@@ -16,26 +16,12 @@ import {
 } from "./styles";
 
 class Orders extends Component {
-  state = {
-    Orders: {
-      data: [
-        {
-          id: 1,
-          date: "2019-06-17T17:00:00",
-          price: 42.0
-        },
-        {
-          id: 2,
-          date: "2019-04-16T16:00:00",
-          price: 142.0
-        },
-        {
-          id: 3,
-          date: "2019-03-15T09:00:00",
-          price: 78.0
-        }
-      ]
-    }
+  static propTypes = {
+    navigation: PropTypes.func.isRequired,
+    ordersListRequest: PropTypes.func.isRequired,
+    orders: PropTypes.shape({
+      data: PropTypes.array()
+    })
   };
 
   componentDidMount() {
