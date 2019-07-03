@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 //import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import LinearGradient from "react-native-linear-gradient";
+import { colors, metrics } from "~/styles";
 
 export const Container = styled.View`
   flex: 1;
@@ -33,6 +34,9 @@ export const TextEmail = styled.TextInput`
   width: 80%;
   border-radius: 5px;
   padding-left: 20px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
+  .;
 `;
 
 export const TextPassword = styled.TextInput`
@@ -41,6 +45,8 @@ export const TextPassword = styled.TextInput`
   width: 80%;
   border-radius: 5px;
   padding-left: 20px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const ButtonLogin = styled.TouchableOpacity`
@@ -49,7 +55,8 @@ export const ButtonLogin = styled.TouchableOpacity`
   background-color: #fd003e;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const ButtonLoginText = styled.Text`
