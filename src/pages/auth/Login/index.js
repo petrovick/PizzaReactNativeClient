@@ -42,6 +42,7 @@ class Login extends Component {
   };
 
   render() {
+    const { email, password } = this.state;
     return (
       <LinearGradientBack colors={["#4c669f", "#3b5998", "#192f6a"]}>
         <Background source={require("~/img/login/background.png")}>
@@ -49,10 +50,12 @@ class Login extends Component {
             <TextEmail
               placeholder="Seu e-mail"
               onChangeText={text => this.setState({ email: text })}
+              value={email}
             />
             <TextPassword
               placeholder="Senha secreta"
               onChangeText={text => this.setState({ password: text })}
+              value={password}
             />
             <ButtonLogin onPress={this.handleSignInClick}>
               <ButtonLoginText>Entrar</ButtonLoginText>
