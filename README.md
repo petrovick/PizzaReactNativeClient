@@ -1,27 +1,35 @@
-Images from the app
+App's Image
 
 ##Login Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/1_login.png)
 
 ##Signup Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/2_signup.png)
 
 ##Products Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/3_products.png)
 
 ##Product Types Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/4_types.png)
 
 ##Product Sizes Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/5_sizes.png)
 
 ##My Orders Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/6_orders.png)
 
 ##Current Cart Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/7_cart_products.png)
 
 ##Cart Ordering Page
+
 ![Orders](https://raw.githubusercontent.com/petrovick/PizzaReactNativeClient/master/solutions/images/8_cart_details.png)
 
 To run this app follow the below instructions
