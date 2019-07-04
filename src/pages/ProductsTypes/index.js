@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 import { View } from "react-native";
 
@@ -22,9 +23,8 @@ import ProductTypeItem from "./ProductTypeItem";
 class ProductsTypes extends Component {
   static propTypes = {
     productTypesListRequest: PropTypes.func.isRequired,
-    navigaiton: PropTypes.func.isRequired,
     productTypes: PropTypes.shape({
-      data: PropTypes.array()
+      data: PropTypes.array
     })
   };
 

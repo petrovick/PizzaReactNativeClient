@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button } from "react-native";
 import moment from "moment";
 
@@ -12,8 +13,8 @@ import {
   OrderPriceText
 } from "./styles";
 
-const OrderItem = ({ order, onItemClick }) => (
-  <Container onPress={() => onItemClick(order)}>
+const OrderItem = ({ order }) => (
+  <Container>
     <ContainerText>
       <OrderNumberText>Pedido #{order.id}</OrderNumberText>
       <OrderDateText>{moment(order.date).fromNow()}</OrderDateText>
@@ -23,7 +24,6 @@ const OrderItem = ({ order, onItemClick }) => (
 );
 
 OrderItem.propTypes = {
-  onItemClick: PropTypes.func.isRequired,
   orders: PropTypes.shape({
     id: PropTypes.number,
     date: PropTypes.string,

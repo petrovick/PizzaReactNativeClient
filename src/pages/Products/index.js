@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import { TouchableOpacity } from "react-native";
 import ProductItem from "./ProductItem";
 
@@ -18,10 +20,9 @@ import {
 
 class Products extends Component {
   static propTypes = {
-    navigation: PropTypes.func.isRequired,
     productsListRequest: PropTypes.func.isRequired,
     products: PropTypes.shape({
-      data: PropTypes.array(),
+      data: PropTypes.array,
       loading: PropTypes.bool
     })
   };

@@ -6,7 +6,7 @@ import { navigate } from "~/services/navigation";
 
 export function* commitCheckoutOrder({ checkout }) {
   try {
-    const { data } = yield call(api.post, "order", checkout);
+    const { data } = yield call(api.post, "user/orders", checkout);
     ToastActionsCreators.displayError(`Pedido gerado com sucesso.`);
     navigate("Orders");
   } catch (err) {

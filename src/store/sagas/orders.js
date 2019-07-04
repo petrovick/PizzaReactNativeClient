@@ -6,7 +6,7 @@ import api from "~/services/api";
 export function* listOrders() {
   try {
     console.tron.log("Entrou aqui.");
-    const { data } = yield call(api.get, "order");
+    const { data } = yield call(api.get, "user/orders");
     console.tron.log(data);
     yield put(OrdersActions.ordersListSuccess(data));
   } catch (err) {

@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Entypo";
 import CartItem from "./CartItem";
@@ -23,11 +25,11 @@ import {
 
 class Cart extends Component {
   static propTypes = {
-    navigation: PropTypes.func.isRequired,
     cart: PropTypes.shape({
-      data: PropTypes.array()
+      data: PropTypes.array
     })
   };
+
   handleBackClick = () => {
     const { navigation } = this.props;
     navigation.navigate("Products");

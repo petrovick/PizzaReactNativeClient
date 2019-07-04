@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { ToastActionsCreators } from "react-native-redux-toast";
 
 import { View } from "react-native";
@@ -20,7 +21,6 @@ import {
 import ProductSizeItem from "./ProductSizeItem";
 class ProductsSizes extends Component {
   static propTypes = {
-    navigation: PropTypes.func.isRequired,
     productSizesListRequest: PropTypes.func.isRequired,
     addToCart: PropTypes.func.isRequired,
     sumToTotal: PropTypes.func.isRequired,
@@ -29,9 +29,10 @@ class ProductsSizes extends Component {
       total: PropTypes.number
     }),
     productSizes: PropTypes.shape({
-      data: PropTypes.array()
+      data: PropTypes.array
     })
   };
+
   componentDidMount() {
     const { productSizesListRequest, navigation } = this.props;
     const productType = navigation.getParam("productType");

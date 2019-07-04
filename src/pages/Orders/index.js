@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { TouchableOpacity } from "react-native";
 import OrderItem from "./OrderItem";
 
@@ -17,10 +18,9 @@ import {
 
 class Orders extends Component {
   static propTypes = {
-    navigation: PropTypes.func.isRequired,
     ordersListRequest: PropTypes.func.isRequired,
     orders: PropTypes.shape({
-      data: PropTypes.array()
+      data: PropTypes.array
     })
   };
 

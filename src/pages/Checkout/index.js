@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Icon from "react-native-vector-icons/Entypo";
 
 import { connect } from "react-redux";
@@ -27,10 +28,9 @@ import {
 
 class Checkout extends Component {
   static propTypes = {
-    navigation: PropTypes.func.isRequired,
     commitCheckoutOrderRequest: PropTypes.func.isRequired,
     cart: PropTypes.shape({
-      data: PropTypes.array()
+      data: PropTypes.array
     })
   };
 

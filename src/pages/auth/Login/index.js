@@ -20,10 +20,11 @@ import {
 } from "./styles";
 
 class Login extends Component {
+  /*
   static propTypes = {
-    signInRequest: PropTypes.isFunc.isRequired
+    signInRequest: PropTypes.func.isRequired
   };
-
+  */
   state = {
     email: "petrovickg@hotmail.com",
     password: "123456"

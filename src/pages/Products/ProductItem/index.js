@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Button } from "react-native";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
@@ -32,7 +33,7 @@ ProductItem.propTypes = {
     url: PropTypes.string,
     name: PropTypes.string,
     description: PropTypes.string,
-    time: PropTypes.string
+    time: PropTypes.number
   })
 };
 
