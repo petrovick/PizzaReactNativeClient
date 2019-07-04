@@ -57,7 +57,7 @@ class Cart extends Component {
             </TouchableOpacity>
             <HeaderText>Carrinho</HeaderText>
           </HeaderLeft>
-          <TotalPriceText>R$ 107</TotalPriceText>
+          <TotalPriceText>R$ {cart.total}</TotalPriceText>
         </Header>
 
         <ProductsList

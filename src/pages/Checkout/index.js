@@ -60,6 +60,7 @@ class Checkout extends Component {
   };
 
   render() {
+    const { cart } = this.props;
     return (
       <Container>
         <Header
@@ -71,7 +72,7 @@ class Checkout extends Component {
             </TouchableOpacity>
             <HeaderText>Realizar Pedido</HeaderText>
           </HeaderLeft>
-          <TotalPriceText>R$ 107,50</TotalPriceText>
+          <TotalPriceText>R$ {cart.total}</TotalPriceText>
         </Header>
         <ObsTextInput
           onChangeText={text => this.setState({ obs: text })}

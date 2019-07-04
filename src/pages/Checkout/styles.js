@@ -81,7 +81,6 @@ export const StreetTextInput = styled.TextInput`
   background-color: ${colors.white};
   border-radius: ${metrics.baseRadius}px;
   height: 50px;
-  box-shadow: 15px -10px 3px #f55;
 `;
 
 export const NumberTextInput = styled.TextInput`
@@ -90,7 +89,6 @@ export const NumberTextInput = styled.TextInput`
   background-color: ${colors.white};
   border-radius: ${metrics.baseRadius}px;
   height: 50px;
-  box-shadow: 15px -10px 3px #f55;
 `;
 
 export const NeightborInputTextInput = styled.TextInput`
@@ -100,7 +98,6 @@ export const NeightborInputTextInput = styled.TextInput`
   margin-right: ${metrics.baseMargin}px;
   border-radius: ${metrics.baseRadius}px;
   height: 50px;
-  box-shadow: 15px -10px 3px #f55;
 `;
 
 export const ContainerButton = styled.View`

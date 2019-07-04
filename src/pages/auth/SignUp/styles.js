@@ -1,4 +1,5 @@
 import styled from "styled-components/native";
+import { metrics } from "~/styles";
 
 export const Container = styled.View`
   flex: 1;
@@ -26,6 +27,8 @@ export const TextName = styled.TextInput`
   width: 80%;
   border-radius: 5px;
   padding-left: 20px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const TextEmail = styled.TextInput`
@@ -34,6 +37,8 @@ export const TextEmail = styled.TextInput`
   width: 80%;
   border-radius: 5px;
   padding-left: 20px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const TextPassword = styled.TextInput`
@@ -42,6 +47,8 @@ export const TextPassword = styled.TextInput`
   width: 80%;
   border-radius: 5px;
   padding-left: 20px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const ButtonSignUp = styled.TouchableOpacity`
@@ -50,7 +57,8 @@ export const ButtonSignUp = styled.TouchableOpacity`
   background-color: #fd003e;
   align-items: center;
   justify-content: center;
-  height: 40px;
+  height: ${metrics.inputSizeBig}px;
+  border-radius: ${metrics.baseRadius * 2}px;
 `;
 
 export const ButtonSignUpText = styled.Text`

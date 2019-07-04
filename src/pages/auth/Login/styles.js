@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 //import { getStatusBarHeight } from "react-native-iphone-x-helper";
 import LinearGradient from "react-native-linear-gradient";
-import { colors, metrics } from "~/styles";
+import { metrics } from "~/styles";
 
 export const Container = styled.View`
   flex: 1;
