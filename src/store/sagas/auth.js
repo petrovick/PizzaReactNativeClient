@@ -21,8 +21,12 @@ export function* signIn({ email, password }) {
 
 export function* signUp({ name, email, password }) {
   try {
-    yield put(AuthActions.signInSuccess("CUSTOMTOKENPET"));
-    navigate("SignUp");
+    const { data } = yield call(api.post, "users", {
+      name,
+      email,
+      password
+    });
+    navigate("Login");
   } catch (err) {
     yield put(ToastActionsCreators.displayError(`Erro ao fazer login. ${err}`));
   }
