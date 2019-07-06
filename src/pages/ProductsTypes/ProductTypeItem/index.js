@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { TouchableOpacity, Text, View } from "react-native";
-import { Container, ProductImage, ProductName } from "./styles";
+import {
+  Container,
+  ProductDivImage,
+  ProductImage,
+  ProductName
+} from "./styles";
 
 const ProductTypeItem = ({ productType, onItemClick }) => (
   <Container onPress={() => onItemClick(productType)}>
     <View>
-      <ProductImage source={{ uri: productType.url }} />
+      <ProductDivImage imageUrl={productType.url}>
+        <ProductImage source={{ uri: productType.url }} resizeMode="contain" />
+      </ProductDivImage>
       <ProductName>{productType.name}</ProductName>
     </View>
   </Container>

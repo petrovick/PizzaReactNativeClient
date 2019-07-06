@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { default as NumberFormat } from "react-number-format";
 
 import { Button, TouchableOpacity } from "react-native";
 
@@ -15,13 +16,23 @@ import {
 
 const ProductItem = ({ cartItem, onItemRemoveClick }) => (
   <Container>
-    <Image source={{ uri: cartItem.productType.url }} />
+    <Image source={{ uri: cartItem.productType.url }} resizeMode="contain" />
     <ContainerText>
       <ProductText>{cartItem.productType.name}</ProductText>
       <ProductDescriptionText>
         {cartItem.productSize.description}
       </ProductDescriptionText>
-      <ProductPriceText>R$ {cartItem.price}</ProductPriceText>
+
+      <NumberFormat
+        value={parseFloat(cartItem.price)}
+        displayType={"text"}
+        defaultValue="0"
+        thousandSeparator="."
+        decimalScale={2}
+        prefix={"R$ "}
+        decimalSeparator=","
+        renderText={value => <ProductPriceText>{value}</ProductPriceText>}
+      />
     </ContainerText>
     <TouchableOpacity onPress={() => onItemRemoveClick(cartItem)}>
       <IconRemove />

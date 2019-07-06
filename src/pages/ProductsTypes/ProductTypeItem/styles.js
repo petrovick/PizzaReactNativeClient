@@ -13,11 +13,16 @@ export const Container = styled.TouchableOpacity`
   justify-content: center;
 `;
 
-export const ProductImage = styled.Image`
-  width: 130px;
-  height: 126px;
+export const ProductDivImage = styled.View`
+  width: 78px;
+  height: 78px;
 
   margin: ${metrics.baseMargin}px;
+`;
+
+export const ProductImage = styled.Image`
+  width: 100%;
+  height: 100%;
 `;
 
 export const ProductName = styled.Text`

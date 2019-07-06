@@ -15,7 +15,7 @@ import {
 
 const ProductItem = ({ product, onItemClick }) => (
   <Container onPress={() => onItemClick(product)}>
-    <Image source={{ uri: product.url }} />
+    <Image source={{ uri: product.url }} resizeMode="contain" />
     <ContainerText>
       <ProductText>{product.name}</ProductText>
       <ProductDescriptionText>{product.description}</ProductDescriptionText>

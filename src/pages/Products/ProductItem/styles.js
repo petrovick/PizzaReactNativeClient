@@ -14,10 +14,10 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const Image = styled.Image`
-  width: 92px;
-  height: 133px;
+  width: 78px;
+  height: 78px;
   border-radius: ${metrics.baseRadius}px;
-  margin-left: ${metrics.baseMargin}px;
+  margin-left: ${metrics.baseMargin / 2}px;
 `;
 
 export const ContainerText = styled.View`

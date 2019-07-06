@@ -7,6 +7,8 @@ import { View } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ProdutSizesActions from "~/store/ducks/productSizes";
+
+import HeaderComp from "~/components/HeaderComp";
 import CartActions from "~/store/ducks/cart";
 
 import {
@@ -58,9 +60,7 @@ class ProductsSizes extends Component {
       productSize: productTypeSize.ProductSize
     });
     sumToTotal(total);
-    console.tron.log(this.props);
-    console.tron.log(product);
-    console.tron.log(productType);
+
     const { name: prodName } = product;
     const { name: prodTypeName } = productType;
     displayInfo(
@@ -72,14 +72,12 @@ class ProductsSizes extends Component {
     const { productSizes } = this.props;
     return (
       <Container>
-        <Header
-          source={require("~/img/headerbackground/header-background.png")}
-        >
-          <HeaderLeft>
-            <IconBack onPress={this.handleBackClick} />
-            <HeaderText>Selecione um Tamanho</HeaderText>
-          </HeaderLeft>
-        </Header>
+        <HeaderComp
+          title="Selecione um Tamanho"
+          IconLeft={IconBack}
+          handleLeftClick={() => this.handleBackClick()}
+        />
+
         <ProductsSizesList
           data={productSizes.data}
           keyExtractor={item => String(item.id)}

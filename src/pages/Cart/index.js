@@ -9,6 +9,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CartActions from "~/store/ducks/cart";
 
+import HeaderComp from "~/components/HeaderComp";
+
 import {
   Container,
   Header,
@@ -36,7 +38,8 @@ class Cart extends Component {
   };
 
   handleRemoveCartItemClick = cartItem => {
-    console.tron.warn("handleProductClick");
+    const { removeFromCart } = this.props;
+    removeFromCart(cartItem);
   };
 
   handleCheckoutCartClick = () => {
@@ -48,40 +51,38 @@ class Cart extends Component {
     const { cart } = this.props;
     return (
       <Container>
-        <Header
-          source={require("~/img/headerbackground/header-background.png")}
-        >
-          <HeaderLeft>
-            <TouchableOpacity onPress={() => this.handleBackClick()}>
-              <IconBack name="chevron-left" />
-            </TouchableOpacity>
-            <HeaderText>Carrinho</HeaderText>
-          </HeaderLeft>
-          <TotalPriceText>R$ {cart.total}</TotalPriceText>
-        </Header>
-
-        <ProductsList
-          data={cart.data}
-          keyExtractor={item => String(item.id)}
-          renderItem={({ item }) => (
-            <CartItem
-              cartItem={item}
-              onItemRemoveClick={this.handleRemoveCartItemClick}
-            />
-          )}
-          ListFooterComponent={() => (
-            <Footer>
-              <TouchableOpacity onPress={() => this.handleBackClick()}>
-                <IconAddProduct />
-              </TouchableOpacity>
-
-              <CheckoutButton onPress={() => this.handleCheckoutCartClick()}>
-                <CheckoutButtonText>Realizar Pedido</CheckoutButtonText>
-                <Icon name="chevron-right" size={24} color="#FFF" />
-              </CheckoutButton>
-            </Footer>
-          )}
+        <HeaderComp
+          title="Carrinho"
+          price={cart.total}
+          IconLeft={IconBack}
+          handleLeftClick={() => this.handleBackClick()}
         />
+        {cart && cart.data && (
+          <ProductsList
+            data={cart.data}
+            keyExtractor={item => String(item.id)}
+            renderItem={({ item }) =>
+              item && (
+                <CartItem
+                  cartItem={item}
+                  onItemRemoveClick={this.handleRemoveCartItemClick}
+                />
+              )
+            }
+            ListFooterComponent={() => (
+              <Footer>
+                <TouchableOpacity onPress={() => this.handleBackClick()}>
+                  <IconAddProduct />
+                </TouchableOpacity>
+
+                <CheckoutButton onPress={() => this.handleCheckoutCartClick()}>
+                  <CheckoutButtonText>Realizar Pedido</CheckoutButtonText>
+                  <Icon name="chevron-right" size={24} color="#FFF" />
+                </CheckoutButton>
+              </Footer>
+            )}
+          />
+        )}
       </Container>
     );
   }

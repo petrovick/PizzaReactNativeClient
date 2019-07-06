@@ -8,11 +8,13 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import ProdutsActions from "~/store/ducks/products";
 
+import HeaderComp from "~/components/HeaderComp";
+
 import {
   Container,
-  Header,
-  HeaderLeft,
-  HeaderText,
+  //Header,
+  //HeaderLeft,
+  //HeaderText,
   ProductsList,
   IconOrders,
   IconCart
@@ -59,6 +61,14 @@ class Products extends Component {
     }
     return (
       <Container>
+        <HeaderComp
+          title="Pizzaria Dom Juan"
+          IconLeft={IconOrders}
+          IconRight={IconCart}
+          handleLeftClick={() => this.handleOrdersClick()}
+          handleRightClick={() => this.handleCartClick()}
+        />
+        {/*
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
@@ -72,7 +82,7 @@ class Products extends Component {
             <IconCart />
           </TouchableOpacity>
         </Header>
-
+        */}
         <ProductsList
           data={data}
           keyExtractor={item => String(item.id)}

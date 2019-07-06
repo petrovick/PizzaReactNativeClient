@@ -24,7 +24,7 @@ export const HeaderLeft = styled.View`
 export const IconBack = styled(Icon).attrs({
   color: `${colors.white}`,
   size: 24,
-  name: "shopping-bag"
+  name: "chevron-left"
 })`
   margin-left: ${metrics.baseMargin * 2}px;
   margin-top: ${metrics.baseMargin * 2}px;

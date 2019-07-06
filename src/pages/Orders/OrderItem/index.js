@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Button } from "react-native";
 import moment from "moment";
+import { default as NumberFormat } from "react-number-format";
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
@@ -18,7 +19,16 @@ const OrderItem = ({ order }) => (
     <ContainerText>
       <OrderNumberText>Pedido #{order.id}</OrderNumberText>
       <OrderDateText>{moment(order.date).fromNow()}</OrderDateText>
-      <OrderPriceText>R$ {order.total_price}</OrderPriceText>
+
+      <NumberFormat
+        value={parseFloat(order.total_price)}
+        displayType={"text"}
+        thousandSeparator="."
+        decimalScale={2}
+        prefix={"R$ "}
+        decimalSeparator=","
+        renderText={value => <OrderPriceText>{value}</OrderPriceText>}
+      />
     </ContainerText>
   </Container>
 );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { default as NumberFormat } from "react-number-format";
 
 import { TouchableOpacity, Text, View } from "react-native";
 import { Container, ProductImage, ProductName, ProductValue } from "./styles";
@@ -7,9 +8,20 @@ import { Container, ProductImage, ProductName, ProductValue } from "./styles";
 const ProductSizeItem = ({ productSize: item, onItemClick }) => (
   <Container onPress={() => onItemClick(item)}>
     <View>
-      <ProductImage source={{ uri: item.ProductSize.url }} />
+      <ProductImage
+        source={{ uri: item.ProductSize.url }}
+        resizeMode="contain"
+      />
       <ProductName>{item.ProductSize.description}</ProductName>
-      <ProductValue>R$ {item.price}</ProductValue>
+      <NumberFormat
+        value={parseFloat(item.price)}
+        displayType={"text"}
+        thousandSeparator="."
+        decimalScale={2}
+        prefix={"R$ "}
+        decimalSeparator=","
+        renderText={value => <ProductValue>{value}</ProductValue>}
+      />
     </View>
   </Container>
 );

@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import CartActions from "~/store/ducks/cart";
 
+import HeaderComp from "~/components/HeaderComp";
+
 import { View, Text, TouchableOpacity } from "react-native";
 
 import {
@@ -63,6 +65,13 @@ class Checkout extends Component {
     const { cart } = this.props;
     return (
       <Container>
+        <HeaderComp
+          title="Realizar Pedido"
+          price={cart.total}
+          IconLeft={IconBack}
+          handleLeftClick={() => this.handleBackClick()}
+        />
+        {/*
         <Header
           source={require("~/img/headerbackground/header-background.png")}
         >
@@ -74,6 +83,7 @@ class Checkout extends Component {
           </HeaderLeft>
           <TotalPriceText>R$ {cart.total}</TotalPriceText>
         </Header>
+        */}
         <ObsTextInput
           onChangeText={text => this.setState({ obs: text })}
           placeholder="Alguma observação?"

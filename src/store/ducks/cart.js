@@ -6,6 +6,7 @@ import Immutable from "seamless-immutable";
 const { Types, Creators } = createActions({
   addToCart: ["data"],
   sumToTotal: ["total"],
+  removeFromCart: ["data"],
 
   commitCheckoutOrderRequest: ["checkout"],
   commitCheckoutOrderSuccess: null
@@ -38,6 +39,15 @@ export const sumToTotalReducer = (state, { total }) => {
     return state.merge({ total });
   }
 };
+export const removeFromCartReducer = (state, { data }) => {
+  {
+    var stateMerged = state.merge({
+      data: state.data.filter(element => element.id !== data.id),
+      total: state.total - data.price
+    });
+    return stateMerged;
+  }
+};
 /*export const commitCheckoutOrderRequestReducer = (state, { total }) => {
   {
     return state.merge({ total });
@@ -47,7 +57,8 @@ export const sumToTotalReducer = (state, { total }) => {
 /* Reducers to types */
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.ADD_TO_CART]: addToCartReducer,
-  [Types.SUM_TO_TOTAL]: sumToTotalReducer
+  [Types.SUM_TO_TOTAL]: sumToTotalReducer,
+  [Types.REMOVE_FROM_CART]: removeFromCartReducer
 
   //[Types.COMMIT_CHECKOUT_ORDER_REQUEST]: commitCheckoutOrderRequestReducer
 });

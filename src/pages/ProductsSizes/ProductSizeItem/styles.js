@@ -15,8 +15,8 @@ export const Container = styled.TouchableOpacity`
 `;
 
 export const ProductImage = styled.Image`
-  width: 130px;
-  height: 126px;
+  width: 78px;
+  height: 78px;
 
   margin: ${metrics.baseMargin}px;
 `;

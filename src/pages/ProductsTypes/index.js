@@ -9,6 +9,8 @@ import ProdutTypesActions from "~/store/ducks/productTypes";
 
 import { metrics, colors } from "~/styles";
 
+import HeaderComp from "~/components/HeaderComp";
+
 import {
   Container,
   IconBack,
@@ -49,14 +51,12 @@ class ProductsTypes extends Component {
     const { productTypes } = this.props;
     return (
       <Container>
-        <Header
-          source={require("~/img/headerbackground/header-background.png")}
-        >
-          <HeaderLeft>
-            <IconBack onPress={this.handleBackClick} />
-            <HeaderText>Selecione um Tipo</HeaderText>
-          </HeaderLeft>
-        </Header>
+        <HeaderComp
+          title="Selecione um Tipo"
+          IconLeft={IconBack}
+          handleLeftClick={() => this.handleBackClick()}
+        />
+
         <ProductsTypesList
           data={productTypes.data}
           keyExtractor={item => String(item.id)}
