@@ -18,7 +18,7 @@ The folllowing command will download all the needed dependencies.
 
 ### `yarn`
 
-Prior to running this app, edit the [api.js][https://github.com/petrovick/pizzareactnativeclient/blob/master/src/services/api.js] and [ReactotronConfig.js][https://github.com/petrovick/pizzareactnativeclient/blob/master/src/config/reactotronconfig.js] with the correct server location.
+Prior to running this app, edit the [.env][https://github.com/petrovick/pizzareactnativeclient/blob/master/.env] and [ReactotronConfig.js][https://github.com/petrovick/pizzareactnativeclient/blob/master/src/config/reactotronconfig.js] with the correct server location.
 
 ## Running on Android
 
