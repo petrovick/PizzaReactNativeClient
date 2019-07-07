@@ -36,10 +36,14 @@ class ProductsSizes extends Component {
   };
 
   componentDidMount() {
+    this.listProductSizes();
+  }
+
+  listProductSizes = () => {
     const { productSizesListRequest, navigation } = this.props;
     const productType = navigation.getParam("productType");
     productSizesListRequest(productType.id);
-  }
+  };
 
   handleBackClick = () => {
     const { navigation } = this.props;
@@ -69,7 +73,7 @@ class ProductsSizes extends Component {
   };
 
   render() {
-    const { productSizes } = this.props;
+    const { data, loading } = this.props.productSizes;
     return (
       <Container>
         <HeaderComp
@@ -79,7 +83,7 @@ class ProductsSizes extends Component {
         />
 
         <ProductsSizesList
-          data={productSizes.data}
+          data={data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
             <ProductSizeItem
@@ -88,6 +92,8 @@ class ProductsSizes extends Component {
             />
           )}
           numColumns={2}
+          refreshing={loading}
+          onRefresh={this.listProductSizes}
         />
       </Container>
     );

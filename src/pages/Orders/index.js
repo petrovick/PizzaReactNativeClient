@@ -27,9 +27,13 @@ class Orders extends Component {
   };
 
   componentDidMount() {
+    this.listOrders();
+  }
+
+  listOrders = () => {
     const { ordersListRequest } = this.props;
     ordersListRequest();
-  }
+  };
 
   handleBackClick = () => {
     const { navigation } = this.props;
@@ -37,7 +41,7 @@ class Orders extends Component {
   };
 
   render() {
-    const { orders } = this.props;
+    const { data, loading } = this.props.orders;
     return (
       <Container>
         <HeaderComp
@@ -47,9 +51,11 @@ class Orders extends Component {
         />
 
         <OrdersList
-          data={orders.data}
+          data={data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => <OrderItem order={item} />}
+          refreshing={loading}
+          onRefresh={this.listOrders}
         />
       </Container>
     );

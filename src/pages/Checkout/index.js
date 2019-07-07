@@ -57,7 +57,8 @@ class Checkout extends Component {
     commitCheckoutOrderRequest({
       ...this.state,
       productTypeSizes: productTypeSizes,
-      total: cart.total
+      total: cart.total,
+      date: new Date()
     });
   };
 

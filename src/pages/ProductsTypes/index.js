@@ -31,10 +31,14 @@ class ProductsTypes extends Component {
   };
 
   componentDidMount() {
+    this.listProductTypes();
+  }
+
+  listProductTypes = () => {
     const { productTypesListRequest, navigation } = this.props;
     const product = navigation.getParam("product");
     productTypesListRequest(product.id);
-  }
+  };
 
   handleBackClick = () => {
     const { navigation } = this.props;
@@ -48,7 +52,7 @@ class ProductsTypes extends Component {
   };
 
   render() {
-    const { productTypes } = this.props;
+    const { data, loading } = this.props.productTypes;
     return (
       <Container>
         <HeaderComp
@@ -58,7 +62,7 @@ class ProductsTypes extends Component {
         />
 
         <ProductsTypesList
-          data={productTypes.data}
+          data={data}
           keyExtractor={item => String(item.id)}
           renderItem={({ item }) => (
             <ProductTypeItem
@@ -67,6 +71,8 @@ class ProductsTypes extends Component {
             />
           )}
           numColumns={2}
+          refreshing={loading}
+          onRefresh={this.listProductTypes}
         />
       </Container>
     );
