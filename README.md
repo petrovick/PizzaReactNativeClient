@@ -1,4 +1,40 @@
-App's Image
+# Pizza App
+
+This repository represents the mobile project of a whole system for managing online Pizza ordering. Which is separeted into three parts, a [backend(server)][server] , [frontend][frontend] and a [mobile client app][mobileclient].
+
+## App's Backend
+
+[Click here to go to the app's backend.][server]
+
+## App's Front
+
+[Click here to go to the mobile app.][frontend]
+
+To run this app follow the below instructions
+
+## Running Project
+
+The folllowing command will download all the needed dependencies.
+
+### `yarn`
+
+Prior to running this app, edit the [api.js][https://github.com/petrovick/pizzareactnativeclient/blob/master/src/services/api.js] and [ReactotronConfig.js][https://github.com/petrovick/pizzareactnativeclient/blob/master/src/config/reactotronconfig.js] with the correct server location.
+
+## Running on Android
+
+### `react-native start --reset-cache`
+
+Wait for the above command to be "Done."
+
+In a separate terminal run
+
+### `react-native run-android`
+
+## Running on iOS
+
+### `react-native run-ios --simulator="iPhone 6s Plus"`
+
+## App's Image
 
 ### Login Page
 
