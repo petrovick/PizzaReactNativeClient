@@ -1,8 +1,10 @@
 import axios from "axios";
 import store from "~/store";
-
+import { SERVER_IP } from "react-native-dotenv";
+console.tron.error("SERVER_IP");
+console.tron.error(SERVER_IP);
 const api = axios.create({
-  baseURL: "http://192.168.100.2:3001"
+  baseURL: SERVER_IP
 });
 
 api.interceptors.request.use(config => {

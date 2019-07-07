@@ -91,6 +91,7 @@ class Checkout extends Component {
         />
         <CepInputTextInput
           placeholder="Qual seu CEP?"
+          keyboardType="numeric"
           onChangeText={text => this.setState({ zip: text })}
         />
         <AddressContainer>
@@ -100,6 +101,7 @@ class Checkout extends Component {
           />
           <NumberTextInput
             placeholder="Nº"
+            keyboardType="numeric"
             onChangeText={text => this.setState({ number: text })}
           />
         </AddressContainer>
