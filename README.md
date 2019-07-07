@@ -8,7 +8,7 @@ This repository represents the mobile project of a whole system for managing onl
 
 ## App's Front
 
-[Click here to go to the mobile app.][frontend]
+[Click here to go to the frontend app.][frontend]
 
 To run this app follow the below instructions
 
